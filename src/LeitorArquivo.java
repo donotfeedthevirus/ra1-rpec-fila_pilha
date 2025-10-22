@@ -9,12 +9,10 @@ public class LeitorArquivo {
             String linha;
             while ((linha = br.readLine()) != null) {
                 if (linhaContemElemento(linha)) {
-                    // Esperado: new Elemento("CLI001", "Maria Silva", "Dúvida sobre produto"),
                     String id = extrairEntreAspas(linha, 0);
                     String nome = extrairEntreAspas(linha, avancarDepoisDeAspas(linha, 0));
                     String desc = extrairEntreAspas(linha, avancarDepoisDeAspas(linha, avancarDepoisDeAspas(linha, 0)));
                     if (id != null && nome != null && desc != null) {
-                        // nome e descricao usados; dataHora = null
                         fila.enfileirar(new Elemento(id, nome, desc, null));
                     }
                 }
@@ -30,12 +28,10 @@ public class LeitorArquivo {
             String linha;
             while ((linha = br.readLine()) != null) {
                 if (linhaContemElemento(linha)) {
-                    // Esperado: new Elemento("REQ001", "Instalação...", "2024-08-20 10:30"),
                     String id = extrairEntreAspas(linha, 0);
                     String desc = extrairEntreAspas(linha, avancarDepoisDeAspas(linha, 0));
                     String dataHora = extrairEntreAspas(linha, avancarDepoisDeAspas(linha, avancarDepoisDeAspas(linha, 0)));
                     if (id != null && desc != null && dataHora != null) {
-                        // descricao e dataHora usados; nome = null
                         pilha.empilhar(new Elemento(id, null, desc, dataHora));
                     }
                 }
@@ -44,8 +40,6 @@ public class LeitorArquivo {
             br.close();
         }
     }
-
-    // ===== Helpers sem arrays/split/regex =====
 
     private static boolean linhaContemElemento(String linha) {
         int p = linhaIndexOf(linha, "new Elemento(");

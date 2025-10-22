@@ -7,7 +7,6 @@ public class App {
         Fila fila = new Fila();
         Pilha pilha = new Pilha();
 
-        // Tenta carregar a partir da raiz ("data/...") e, se falhar, tenta a partir de src ("../data/...")
         tentarCarregarFila(fila);
         tentarCarregarPilha(pilha);
 
@@ -46,7 +45,6 @@ public class App {
                         String hid = "ATD-" + atendido.getId();
                         if (d == null) d = "Atendimento realizado";
                         if (dh == null) dh = "sem-data";
-                        // nome = null; descricao = d; dataHora = dh
                         pilha.empilhar(new Elemento(hid, null, d, dh));
                         System.out.println("Registrado no histórico.");
                     }
@@ -62,7 +60,6 @@ public class App {
                 if (id == null || nome == null || motivo == null) {
                     System.out.println("Dados inválidos.");
                 } else {
-                    // dataHora = null
                     fila.enfileirar(new Elemento(id, nome, motivo, null));
                     System.out.println("Cliente adicionado.");
                 }
@@ -79,7 +76,6 @@ public class App {
                 if (id == null || desc == null || dh == null) {
                     System.out.println("Dados inválidos.");
                 } else {
-                    // nome = null
                     pilha.empilhar(new Elemento(id, null, desc, dh));
                     System.out.println("Solicitação registrada no histórico.");
                 }

@@ -37,7 +37,6 @@ public class Pilha {
         Node atual = topo;
         int pos = 0;
         while (atual != null) {
-            // pos é apenas informativo; não é obrigatório
             System.out.println((pos + 1) + ". " + atual.dado.toStringPilha());
             atual = atual.proximo;
             pos = pos + 1;
